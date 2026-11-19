@@ -80,7 +80,7 @@
         "name": "Yusuf K.",
         "givenName": "Yusuf",
         "familyName": "K.",
-        "image": "assets/images/anuswar-rao-profile-photo.webp",
+        "image": "assets/images/image.webp",
         "jobTitle": "Diş Hekimliği Öğrencisi",
         "description": "İstanbul Galata Üniversitesi Diş Hekimliği öğrencisi.",
         "email": "mailto:Bio@yusufkose.dpdns.org",
@@ -109,6 +109,20 @@
   <link rel="stylesheet" href="libraries/aos/aos.css">
   <link rel="stylesheet" href="libraries/google-font/font.css">
   <link rel="stylesheet" href="libraries/toastify/toastify.min.css">
+  <style>
+    /* Üst boşlukları ve gereksiz margin'leri sıfırlayan özel ayar */
+    .main-container {
+      padding-top: 1rem !important;
+    }
+    .head-section {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    .blob-center {
+      margin-top: 0 !important;
+      margin-bottom: 0.8rem !important;
+    }
+  </style>
 </head>
 
 <body itemscope itemtype="https://schema.org/ProfilePage">
@@ -126,7 +140,7 @@
     <header class="head-section" aria-labelledby="profile-name">
       <div class="blob-center" data-aos="zoom-in">
         <figure class="blob-wrapper">
-          <img src="assets/images/anuswar-rao-profile-photo.webp" alt="Yusuf K." class="blob-image" width="160" height="160" decoding="async" itemprop="image">
+          <img src="assets/images/image.webp" alt="Yusuf K." class="blob-image" width="160" height="160" decoding="async" itemprop="image">
           <figcaption class="visually-hidden">Yusuf K.</figcaption>
         </figure>
       </div>
@@ -181,74 +195,3 @@
             <button class="dots-btn share-trigger" type="button" data-track="Share Instagram" data-link="https://www.instagram.com/yu._.water._.f" aria-label="Paylaş">
               <img src="assets/images/icon/dots.svg?v=2" class="dots-img icon-large" alt="" aria-hidden="true" width="28" height="28">
             </button>
-          </div>
-        </li>
-        <li class="link-item" data-aos="fade-up" data-aos-delay="150">
-          <div class="link-wrapper">
-            <a href="https://t.me/JavaKyoseva" target="_blank" rel="noopener noreferrer me" data-track="Telegram" aria-label="Telegram İletişim" title="Telegram" itemprop="sameAs">
-              <img src="assets/images/icon/telegram.svg?v=2" class="icon icon-large" alt="" width="28" height="28">
-              <div>
-                <h3>Telegram</h3>
-                <small>Telegram Profilim.</small>
-              </div>
-            </a>
-            <button class="dots-btn share-trigger" type="button" data-track="Share Telegram" data-link="https://t.me/JavaKyoseva" aria-label="Paylaş">
-              <img src="assets/images/icon/dots.svg?v=2" class="dots-img icon-large" alt="" aria-hidden="true" width="28" height="28">
-            </button>
-          </div>
-        </li>
-        <li class="link-item" data-aos="fade-up" data-aos-delay="200">
-          <div class="link-wrapper">
-            <a href="https://wa.me/905542581015?text=Selamlarr" target="_blank" rel="noopener noreferrer me" data-track="WhatsApp" aria-label="WhatsApp İletişim" title="WhatsApp">
-              <img src="assets/images/icon/whatsapp.svg?v=2" class="icon icon-large" alt="" width="28" height="28">
-              <div>
-                <h3>WhatsApp</h3>
-                <small>Whatsapp Profilim.</small>
-              </div>
-            </a>
-            <button class="dots-btn share-trigger" type="button" data-track="Share WhatsApp" data-link="https://wa.me/905542581015?text=Selamlarr" aria-label="Paylaş">
-              <img src="assets/images/icon/dots.svg?v=2" class="dots-img icon-large" alt="" aria-hidden="true" width="28" height="28">
-            </button>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <footer class="visually-hidden">
-      <p>&copy; <span itemprop="name">Yusuf K.</span></p>
-    </footer>
-
-  </main>
-
-  <div id="shareOverlay" class="share-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
-    <div class="share-popup">
-      <button id="closeSharePopup" class="close-btn" type="button" aria-label="Kapat">
-        <img src="assets/images/icon/close.svg?v=2" class="icon icon-small" alt="" aria-hidden="true" width="20" height="20">
-      </button>
-      <div class="popup-header">
-        <h2 id="popupTitle" class="popup-title">Linki Paylaş</h2>
-      </div>
-      <div class="qr-container">
-        <div id="qrContainer" class="qr-image" aria-label="QR Kod"></div>
-      </div>
-      <div class="share-actions">
-        <button id="shareBtn" type="button" aria-label="Paylaş">
-          <img src="assets/images/icon/share.svg?v=2" class="icon icon-large" alt="" aria-hidden="true" width="28" height="28">
-        </button>
-        <button id="copyBtn" type="button" aria-label="Kopyala" data-clipboard-text="">
-          <img src="assets/images/icon/copy.svg?v=2" class="icon icon-large" alt="" aria-hidden="true" width="28" height="28">
-        </button>
-        <button id="downloadBtn" type="button" aria-label="İndir">
-          <img src="assets/images/icon/download.svg?v=2" class="icon icon-large" alt="" aria-hidden="true" width="28" height="28">
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <script src="libraries/qrcode.min.js" defer></script>
-  <script src="libraries/toastify/toastify.js" defer></script>
-  <script src="libraries/aos/aos.js" defer></script>
-  <script src="js/app.js" type="module" defer></script>
-</body>
-
-</html>
