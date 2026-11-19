@@ -275,11 +275,11 @@ body::-webkit-scrollbar-corner {
 .blob-wrapper {
   width: 160px;
   height: 160px;
-  border-radius: 52% 48% 59% 41% / 53% 40% 60% 47%;
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
   overflow: hidden;
-  /* Akıcı ve takılmayan 6 saniyelik döngü */
-  -webkit-animation: blobAnim 6s linear infinite;
-          animation: blobAnim 6s linear infinite;
+  /* Duraksamasın ve akıcı olsun diye linear, daha belirgin ve dinamik olması için 5s yapıldı */
+  -webkit-animation: blobAnim 5s linear infinite;
+          animation: blobAnim 5s linear infinite;
   -webkit-box-shadow: 0 4px 20px var(--blob-shadow);
           box-shadow: 0 4px 20px var(--blob-shadow);
 }
@@ -292,33 +292,40 @@ body::-webkit-scrollbar-corner {
   overflow: hidden;
 }
 
+/* Daha belirgin ve akıcı geçişler için güncellenmiş keyframes */
 @-webkit-keyframes blobAnim {
   0% {
-    border-radius: 52% 48% 59% 41% / 53% 40% 60% 47%;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
   }
-  33% {
-    border-radius: 60% 40% 50% 50% / 40% 60% 40% 60%;
+  25% {
+    border-radius: 58% 42% 45% 55% / 60% 35% 65% 40%;
   }
-  66% {
-    border-radius: 40% 60% 60% 40% / 50% 50% 40% 60%;
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 60% 40% 45%;
+  }
+  75% {
+    border-radius: 35% 65% 58% 42% / 40% 50% 50% 60%;
   }
   100% {
-    border-radius: 52% 48% 59% 41% / 53% 40% 60% 47%;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
   }
 }
 
 @keyframes blobAnim {
   0% {
-    border-radius: 52% 48% 59% 41% / 53% 40% 60% 47%;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
   }
-  33% {
-    border-radius: 60% 40% 50% 50% / 40% 60% 40% 60%;
+  25% {
+    border-radius: 58% 42% 45% 55% / 60% 35% 65% 40%;
   }
-  66% {
-    border-radius: 40% 60% 60% 40% / 50% 50% 40% 60%;
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 60% 40% 45%;
+  }
+  75% {
+    border-radius: 35% 65% 58% 42% / 40% 50% 50% 60%;
   }
   100% {
-    border-radius: 52% 48% 59% 41% / 53% 40% 60% 47%;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
   }
 }
 /* =============== DARK MODE TOGGLE =============== */
@@ -330,6 +337,7 @@ body::-webkit-scrollbar-corner {
       -ms-flex-pack: end;
           justify-content: flex-end;
   width: 100%;
+  /* Tema butonunu çok az aşağıya almak için üst/alt boşluk ayarlandı */
   margin: 0.6rem 0 0.8rem;
 }
 
@@ -361,6 +369,7 @@ body::-webkit-scrollbar-corner {
 }
 
 #theme-toggle .icon {
+  /* Lucide strokes are white; invert on dark-mode's light toggle button */
   -webkit-filter: invert(1);
           filter: invert(1);
   width: 18px;
@@ -369,6 +378,7 @@ body::-webkit-scrollbar-corner {
 
 html.light-mode #theme-toggle .icon,
 body.light-mode #theme-toggle .icon {
+  /* Dark toggle button — keep white strokes */
   -webkit-filter: none;
           filter: none;
 }
@@ -597,6 +607,7 @@ small {
   transition: content 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
+/* Change dots to external-link arrow when hovering the link */
 .link-wrapper a:hover ~ .dots-btn .dots-img {
   content: url("../images/icon/arrow.svg?v=2");
   -webkit-transform: none;
@@ -604,6 +615,7 @@ small {
           transform: none;
 }
 
+/* Keep dots when hovering directly on the dots button (right side) */
 .dots-btn:hover .dots-img {
   content: url("../images/icon/dots.svg?v=2");
   -webkit-transform: rotate(0deg);
