@@ -277,8 +277,9 @@ body::-webkit-scrollbar-corner {
   height: 160px;
   border-radius: 52% 48% 59% 41%/53% 40% 60% 47%;
   overflow: hidden;
-  -webkit-animation: blobAnim 10s ease-in-out infinite alternate;
-          animation: blobAnim 10s ease-in-out infinite alternate;
+  /* 10s süresi 2s yapılarak 5 kat hızlandırıldı */
+  -webkit-animation: blobAnim 2s ease-in-out infinite alternate;
+          animation: blobAnim 2s ease-in-out infinite alternate;
   -webkit-box-shadow: 0 4px 20px var(--blob-shadow);
           box-shadow: 0 4px 20px var(--blob-shadow);
 }
@@ -329,7 +330,8 @@ body::-webkit-scrollbar-corner {
       -ms-flex-pack: end;
           justify-content: flex-end;
   width: 100%;
-  margin: 0 0 16rem;
+  /* 16rem olan devasa boşluk sıfırlandı */
+  margin: 0 0 0.5rem;
 }
 
 #theme-toggle {
