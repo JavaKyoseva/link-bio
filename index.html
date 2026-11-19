@@ -30,18 +30,6 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#000000">
   <meta name="color-scheme" content="dark light">
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem("theme");
-        var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-        var isLight = saved ? saved === "light" : prefersLight;
-        if (isLight) document.documentElement.classList.add("light-mode");
-        var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.content = isLight ? "#eef2f7" : "#000000";
-      } catch (e) {}
-    })();
-  </script>
   <meta name="application-name" content="Yusuf K.">
   <meta name="apple-mobile-web-app-title" content="Yusuf K.">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -117,17 +105,10 @@
   }
   </script>
 
-  <link rel="preload" as="image" href="assets/images/anuswar-rao-profile-photo.webp" fetchpriority="high">
-  <link rel="preload" as="font" href="libraries/google-font/Nunito-Regular.woff2" type="font/woff2" crossorigin>
-  <link rel="preload" as="font" href="libraries/google-font/Nunito-SemiBold.woff2" type="font/woff2" crossorigin>
-  <link rel="preload" as="font" href="libraries/google-font/Nunito-ExtraBold.woff2" type="font/woff2" crossorigin>
-
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="libraries/aos/aos.css">
-  <link rel="preload" href="libraries/google-font/font.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="libraries/google-font/font.css"></noscript>
-  <link rel="preload" href="libraries/toastify/toastify.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="libraries/toastify/toastify.min.css"></noscript>
+  <link rel="stylesheet" href="libraries/google-font/font.css">
+  <link rel="stylesheet" href="libraries/toastify/toastify.min.css">
 </head>
 
 <body itemscope itemtype="https://schema.org/ProfilePage">
@@ -137,7 +118,7 @@
     <nav aria-label="Theme switcher">
       <div id="dark-mode-toggle">
         <button id="theme-toggle" type="button" aria-label="Dark veya light mod değiştir" title="Tema değiştir">
-          <img id="theme-icon" class="icon" src="assets/images/icon/moon.svg?v=2" alt="" aria-hidden="true" width="20" height="20" fetchpriority="high" decoding="async">
+          <img id="theme-icon" class="icon" src="assets/images/icon/moon.svg?v=2" alt="" aria-hidden="true" width="20" height="20" decoding="async">
         </button>
       </div>
     </nav>
@@ -145,7 +126,7 @@
     <header class="head-section" aria-labelledby="profile-name">
       <div class="blob-center" data-aos="zoom-in">
         <figure class="blob-wrapper">
-          <img src="assets/images/anuswar-rao-profile-photo.webp" alt="Yusuf K." class="blob-image" width="160" height="160" fetchpriority="high" decoding="async" itemprop="image">
+          <img src="assets/images/anuswar-rao-profile-photo.webp" alt="Yusuf K." class="blob-image" width="160" height="160" decoding="async" itemprop="image">
           <figcaption class="visually-hidden">Yusuf K.</figcaption>
         </figure>
       </div>
