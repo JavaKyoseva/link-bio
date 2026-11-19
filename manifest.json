@@ -1,8 +1,8 @@
 {
-  "name": "Anuswar R Rao – Full-Stack Developer",
-  "short_name": "Anuswar R Rao",
-  "description": "Explore the portfolio, projects, and social profiles of Anuswar R Rao, a Full-Stack Developer from India.",
-  "start_url": "/",
+  "name": "Yusuf K. | İstanbul Galata Üniversitesi",
+  "short_name": "Yusuf K.",
+  "description": "Sosyal medya hesapları ve iletişim bilgileri.",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
@@ -48,7 +48,7 @@
       "purpose": "maskable"
     }
   ],
-  "categories": ["portfolio", "developer", "personal"],
-  "lang": "en-US",
+  "categories": ["personal", "social"],
+  "lang": "tr-TR",
   "dir": "ltr"
 }
