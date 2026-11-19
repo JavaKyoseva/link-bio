@@ -110,9 +110,19 @@
   <link rel="stylesheet" href="libraries/google-font/font.css">
   <link rel="stylesheet" href="libraries/toastify/toastify.min.css">
   <style>
-    /* Üst boşluğu doğrudan yukarı çeken nokta atışı ayar */
+    /* Üst boşlukları tamamen sıfırlayıp fotoğrafı yukarı çeken stil */
+    body {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
     .main-container {
-      padding-top: 0.5rem !important;
+      padding-top: 0.2rem !important;
+      margin-top: 0 !important;
+    }
+    nav[aria-label="Theme switcher"] {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+      min-height: auto !important;
     }
     .head-section {
       margin-top: 0 !important;
@@ -120,7 +130,7 @@
     }
     .blob-center {
       margin-top: 0 !important;
-      margin-bottom: 0.8rem !important;
+      margin-bottom: 0.5rem !important;
     }
   </style>
 </head>
