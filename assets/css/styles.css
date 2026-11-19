@@ -329,7 +329,7 @@ body::-webkit-scrollbar-corner {
       -ms-flex-pack: end;
           justify-content: flex-end;
   width: 100%;
-  margin: 0 0 1rem;
+  margin: 0 0 12rem;
 }
 
 #theme-toggle {
