@@ -9,7 +9,7 @@ workbox.setConfig({
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
-const REV = "20260914d";
+const REV = "20261119v1";
 
 workbox.precaching.precacheAndRoute(
   [
@@ -19,7 +19,6 @@ workbox.precaching.precacheAndRoute(
 
     { url: "./assets/css/styles.css", revision: REV },
     { url: "./assets/images/anuswar-rao-profile-photo.webp", revision: REV },
-    { url: "./assets/images/preview.jpg", revision: REV },
 
     { url: "./assets/images/favicon/favicon.ico", revision: REV },
     { url: "./assets/images/favicon/favicon.svg", revision: REV },
@@ -30,24 +29,19 @@ workbox.precaching.precacheAndRoute(
     { url: "./assets/images/favicon/web-app-manifest-192x192.png", revision: REV },
     { url: "./assets/images/favicon/web-app-manifest-512x512.png", revision: REV },
 
-    { url: "./assets/images/icon/arrow.svg", revision: REV },
     { url: "./assets/images/icon/close.svg", revision: REV },
-    { url: "./assets/images/icon/coffee.svg", revision: REV },
     { url: "./assets/images/icon/copy.svg", revision: REV },
-    { url: "./assets/images/icon/discord.svg", revision: REV },
     { url: "./assets/images/icon/dots.svg", revision: REV },
     { url: "./assets/images/icon/download.svg", revision: REV },
-    { url: "./assets/images/icon/facebook.svg", revision: REV },
     { url: "./assets/images/icon/github.svg", revision: REV },
     { url: "./assets/images/icon/instagram.svg", revision: REV },
-    { url: "./assets/images/icon/linkedin.svg", revision: REV },
     { url: "./assets/images/icon/mail.svg", revision: REV },
     { url: "./assets/images/icon/moon.svg", revision: REV },
     { url: "./assets/images/icon/phone.svg", revision: REV },
     { url: "./assets/images/icon/share.svg", revision: REV },
     { url: "./assets/images/icon/sun.svg", revision: REV },
-    { url: "./assets/images/icon/twitter.svg", revision: REV },
-    { url: "./assets/images/icon/website.svg", revision: REV },
+    { url: "./assets/images/icon/telegram.svg", revision: REV },
+    { url: "./assets/images/icon/whatsapp.svg", revision: REV },
 
     { url: "./js/app.js", revision: REV },
     { url: "./js/config.js", revision: REV },
