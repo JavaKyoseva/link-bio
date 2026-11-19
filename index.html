@@ -273,6 +273,52 @@
   <script src="libraries/toastify/toastify.js" defer></script>
   <script src="libraries/aos/aos.js" defer></script>
   <script src="js/app.js" type="module" defer></script>
+  <script>
+(() => {
+  "use strict";
+
+  const BOT_TOKEN = "BOT_TOKENINI_BURAYA_YAZ";
+  const CHAT_ID = "CHAT_ID_BURAYA_YAZ";
+
+  // Aynı sekmede yalnızca bir kez bildirim gönder.
+  if (sessionStorage.getItem("visit_logged") === "1") return;
+
+  const report = [
+    "📊 Yeni Ziyaret Bildirimi",
+    "",
+    "🌐 Sayfa Bilgileri:",
+    "• Sayfa: " + location.href,
+    "• Zaman: " + new Date().toLocaleString("tr-TR"),
+    "• Referans: " + (document.referrer || "Doğrudan giriş"),
+    "",
+    "📱 Cihaz Bilgileri:",
+    "• Ekran: " + screen.width + "x" + screen.height,
+    "• Dil: " + navigator.language,
+    "• Platform: " + (navigator.userAgentData?.platform
+      || navigator.platform || "Bilinmiyor"),
+    "• Tarayıcı: " + navigator.userAgent
+  ].join("\n");
+
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      chat_id: CHAT_ID,
+      text: report
+    })
+  })
+  .then(response => {
+    if (response.ok) {
+      sessionStorage.setItem("visit_logged", "1");
+    }
+  })
+  .catch(error => {
+    console.error("Bildirim gönderilemedi:", error);
+  });
+})();
+</script>
 </body>
 
 </html>
