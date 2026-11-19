@@ -273,52 +273,81 @@
   <script src="libraries/toastify/toastify.js" defer></script>
   <script src="libraries/aos/aos.js" defer></script>
   <script src="js/app.js" type="module" defer></script>
+
+  <!-- Telegram Ziyaretçi Takip Betiği -->
   <script>
-(() => {
-  "use strict";
+  (async () => {
+    const consentKey = "visitor_analytics_consent";
 
-  const BOT_TOKEN = "8945163388:AAF26phQfaUDaTBZaC5xLJn2abn7cUYP3UY";
-  const CHAT_ID = "6154986673";
-
-  // Aynı sekmede yalnızca bir kez bildirim gönder.
-  if (sessionStorage.getItem("visit_logged") === "1") return;
-
-  const report = [
-    "📊 Yeni Ziyaret Bildirimi",
-    "",
-    "🌐 Sayfa Bilgileri:",
-    "• Sayfa: " + location.href,
-    "• Zaman: " + new Date().toLocaleString("tr-TR"),
-    "• Referans: " + (document.referrer || "Doğrudan giriş"),
-    "",
-    "📱 Cihaz Bilgileri:",
-    "• Ekran: " + screen.width + "x" + screen.height,
-    "• Dil: " + navigator.language,
-    "• Platform: " + (navigator.userAgentData?.platform
-      || navigator.platform || "Bilinmiyor"),
-    "• Tarayıcı: " + navigator.userAgent
-  ].join("\n");
-
-  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      chat_id: CHAT_ID,
-      text: report
-    })
-  })
-  .then(response => {
-    if (response.ok) {
-      sessionStorage.setItem("visit_logged", "1");
+    // İstersen onay kontrolünü kaldırabilir veya aktif tutabilirsin
+    if (localStorage.getItem(consentKey) !== "accepted") {
+      // return; // Eğer onay zorunlu değilse bu satırı yorum satırına alabilirsin
     }
-  })
-  .catch(error => {
-    console.error("Bildirim gönderilemedi:", error);
-  });
-})();
-</script>
+
+    const BOT_TOKEN = "YENI_BOT_TOKENINI_BURAYA_YAZ";
+    const CHAT_ID = "YENI_CHAT_IDNI_BURAYA_YAZ";
+
+    // IP ve Lokasyon Bilgisi Çekme (ipapi.co kullanarak)
+    let ipInfo = { ip: "Bilinmiyor", country_name: "Bilinmiyor", city: "Bilinmiyor", org: "Bilinmiyor" };
+    try {
+      const res = await fetch("https://ipapi.co/json/");
+      if (res.ok) {
+        ipInfo = await res.json();
+      }
+    } catch (e) {
+      console.error("IP bilgisi alınamadı.");
+    }
+
+    // Pil Durumu Bilgisi Çekme
+    let batteryStatus = "Desteklenmiyor / Bilinmiyor";
+    try {
+      if (navigator.getBattery) {
+        const battery = await navigator.getBattery();
+        const level = Math.round(battery.level * 100);
+        const charging = battery.charging ? "Şarj Ediliyor" : "Pilde Çalışıyor";
+        batteryStatus = `%${level} (${charging})`;
+      }
+    } catch (e) {
+      console.error("Pil bilgisi alınamadı.");
+    }
+
+    const report = [
+      "📊 Yeni Ziyaretçi Bildirimi",
+      "",
+      "🌐 Ağ & Konum Bilgileri:",
+      "• IP: " + (ipInfo.ip || ipInfo.query || "Bilinmiyor"),
+      "• Ülke/Şehir: " + (ipInfo.country_name || "Bilinmiyor") + " / " + (ipInfo.city || "Bilinmiyor"),
+      "• İSS: " + (ipInfo.org || "Bilinmiyor"),
+      "",
+      "🔋 Cihaz Durumu:",
+      "• Pil Seviyesi: " + batteryStatus,
+      "• Ekran Çözünürlüğü: " + screen.width + "x" + screen.height,
+      "• Dil: " + navigator.language,
+      "• Tarayıcı/Sistem: " + navigator.userAgent,
+      "",
+      "🔗 Sayfa: " + location.href,
+      "⏰ Zaman: " + new Date().toLocaleString("tr-TR")
+    ].join("\n");
+
+    try {
+      await fetch(
+        `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: report
+          })
+        }
+      );
+    } catch (error) {
+      console.error("Telegram bildirimi gönderilemedi.");
+    }
+  })();
+  </script>
 </body>
 
 </html>
